@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projetapplication/progression.dart';
+import 'package:projetapplication/menu.dart';
+import 'raidmode.dart';
+import 'sucess.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -14,7 +17,7 @@ class _Navbar extends State<Navbar> {
     return Container(
       child: AppBar(
       actions: [
-        Padding(padding: 10.0),
+        Padding(padding:EdgeInsets.all(16.0)),
         Spacer(),
         GestureDetector(
             onTap: () {
@@ -31,7 +34,7 @@ class _Navbar extends State<Navbar> {
         Spacer(),
         GestureDetector(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Menu()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Progression()));
             },
             child:Column(
               children:[
@@ -44,7 +47,7 @@ class _Navbar extends State<Navbar> {
         Spacer(),
         GestureDetector(
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => RaidMode()));
           },
           child:Column(
             children:[
@@ -57,7 +60,8 @@ class _Navbar extends State<Navbar> {
         Spacer(),
         GestureDetector(
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Sucess()));
+
             },
             child:Column(
               children:[
