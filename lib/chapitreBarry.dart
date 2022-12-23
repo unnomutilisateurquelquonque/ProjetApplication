@@ -10,7 +10,7 @@ class ChapitreBarry extends StatefulWidget {
 }
 
 class _ChapitreBarry extends State<ChapitreBarry> {
-  bool isChecked = false;
+  bool checked = false;
   var insect = 0;
   var tour =0;
 
@@ -20,6 +20,9 @@ class _ChapitreBarry extends State<ChapitreBarry> {
       MaterialState.hovered,
       MaterialState.focused,
     };
+    if (states.any(interactiveStates.contains)) {
+      return Colors.blue;
+    }
     return Colors.blue;
   }
 
@@ -130,32 +133,31 @@ class _ChapitreBarry extends State<ChapitreBarry> {
                                     child:Row(
                                         children:[
                                           Padding(padding:EdgeInsets.all(10.0)),
-                                          Text('Rariter',style: TextStyle(
+                                          Text('Or',style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               color: Colors.white,
                                               fontSize: 18,
                                               decoration: TextDecoration.none
                                           ),),
                                           Padding(padding:EdgeInsets.all(10.0)),
-                                          Text('Objectif',style: TextStyle(
+                                          Text('Obj',style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               color: Colors.white,
                                               fontSize: 18,
                                               decoration: TextDecoration.none
                                           ),),
-                                          Checkbox(
-                                          checkColor: Colors.white,
-                                          fillColor: MaterialStateProperty.resolveWith(getColor),
-                                          value: isChecked,
-                                          onChanged: (bool? value) {
-                                            setState(() {
-                                              isChecked = value!;
-                                            });
-                                          },
+                                          Scaffold(
+                                            body: Checkbox(
+                                              value: checked,
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  checked = value!;
+                                                });
+                                              },
+                                            )
                                           ),
                                         ]
                                     )
-
                                 )
                             ),
                               Padding(padding:EdgeInsets.all(1.0))
