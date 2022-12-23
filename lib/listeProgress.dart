@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projetapplication/chapitreClaire.dart';
+import 'package:projetapplication/chapitreBarry.dart';
 
 class ListeProgress extends StatefulWidget {
   const ListeProgress({super.key});
@@ -30,7 +31,7 @@ class _ListeProgress extends State<ListeProgress> {
             Padding(padding: EdgeInsets.all(5.0)),
             GestureDetector(
               onTap: () {
-                //Navigator.push(context, MaterialPageRoute(builder: (context) => Menu()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ChapitreBarry()));
               },
               child:
               Text('Chapitre 1 Barry',style: TextStyle(
@@ -56,7 +57,7 @@ class _ListeProgress extends State<ListeProgress> {
             Padding(padding: EdgeInsets.all(5.0)),
             GestureDetector(
               onTap: () {
-                //Navigator.push(context, MaterialPageRoute(builder: (context) => Menu()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ChapitreBarry()));
               },
               child:
               Text('Chapitre 2 Barry',style: TextStyle(
@@ -82,7 +83,7 @@ class _ListeProgress extends State<ListeProgress> {
             Padding(padding: EdgeInsets.all(5.0)),
             GestureDetector(
               onTap: () {
-                //Navigator.push(context, MaterialPageRoute(builder: (context) => Menu()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ChapitreBarry()));
               },
               child:
               Text('Chapitre 3 Barry',style: TextStyle(
@@ -108,7 +109,7 @@ class _ListeProgress extends State<ListeProgress> {
             Padding(padding: EdgeInsets.all(5.0)),
             GestureDetector(
               onTap: () {
-                //Navigator.push(context, MaterialPageRoute(builder: (context) => Menu()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ChapitreBarry()));
               },
               child:
               Text('Chapitre 4 Barry',style: TextStyle(

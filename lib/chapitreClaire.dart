@@ -9,6 +9,9 @@ class ChapitreClaire extends StatefulWidget {
 }
 
 class _ChapitreClaire extends State<ChapitreClaire> {
+  var dessin= 0;
+  var tour=0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,12 +34,58 @@ class _ChapitreClaire extends State<ChapitreClaire> {
           ),
         ),
         Padding(padding:EdgeInsets.all(5.0)),
-        Text('Dessin: 0/10',style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            fontSize: 18,
-            decoration: TextDecoration.none
-        ),),
+        Row(
+          children:[
+            Spacer(),
+            GestureDetector(
+              onTap: () {
+                if(dessin>0){
+                  setState(() {
+                    dessin=dessin-1;
+                  });
+                }
+              },
+              child:
+              Text('-',style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 18,
+                  decoration: TextDecoration.none
+              ), textAlign: TextAlign.center,),
+            ),
+            Padding(padding:EdgeInsets.all(10.0)),
+            Text('Dessin: ',style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 18,
+                decoration: TextDecoration.none
+            ),),
+            Text(dessin.toString()+"/10",style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 18,
+                decoration: TextDecoration.none
+            ),),
+            Padding(padding:EdgeInsets.all(10.0)),
+            GestureDetector(
+              onTap: () {
+                if(dessin<10){
+                  setState(() {
+                    dessin=dessin+1;
+                  });
+                }
+              },
+              child:
+              Text('+',style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 18,
+                  decoration: TextDecoration.none
+              ), textAlign: TextAlign.center,),
+            ),
+            Spacer()
+          ]
+        ),
         Padding(padding:EdgeInsets.all(5.0)),
         Text('Medal: 0/10',style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -114,12 +163,58 @@ class _ChapitreClaire extends State<ChapitreClaire> {
           ),
         ),
         Padding(padding:EdgeInsets.all(5.0)),
-        Text('Medal de la tour: 0/10',style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            fontSize: 18,
-            decoration: TextDecoration.none
-        ),),
+        Row(
+            children:[
+              Spacer(),
+              GestureDetector(
+                onTap: () {
+                  if(tour>0){
+                    setState(() {
+                      tour=tour-1;
+                    });
+                  }
+                },
+                child:
+                Text('-',style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 18,
+                    decoration: TextDecoration.none
+                ), textAlign: TextAlign.center,),
+              ),
+              Padding(padding:EdgeInsets.all(10.0)),
+              Text('Insect: ',style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 18,
+                  decoration: TextDecoration.none
+              ),),
+              Text(tour.toString()+"/10",style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 18,
+                  decoration: TextDecoration.none
+              ),),
+              Padding(padding:EdgeInsets.all(10.0)),
+              GestureDetector(
+                onTap: () {
+                  if(tour<10){
+                    setState(() {
+                      tour=tour+1;
+                    });
+                  }
+                },
+                child:
+                Text('+',style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 18,
+                    decoration: TextDecoration.none
+                ), textAlign: TextAlign.center,),
+              ),
+              Spacer()
+            ]
+        ),
         Padding(padding:EdgeInsets.all(5.0)),
         Text('walkthrough',style: TextStyle(
             fontWeight: FontWeight.bold,

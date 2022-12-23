@@ -10,6 +10,19 @@ class ChapitreBarry extends StatefulWidget {
 }
 
 class _ChapitreBarry extends State<ChapitreBarry> {
+  bool isChecked = false;
+  var insect = 0;
+  var tour =0;
+
+  Color getColor(Set<MaterialState> states) {
+    const Set<MaterialState> interactiveStates = <MaterialState>{
+      MaterialState.pressed,
+      MaterialState.hovered,
+      MaterialState.focused,
+    };
+    return Colors.blue;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,13 +44,58 @@ class _ChapitreBarry extends State<ChapitreBarry> {
                   color: Colors.white,
                 ),
               ),
-              Padding(padding:EdgeInsets.all(5.0)),
-              Text('Insect: 0/10',style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  fontSize: 18,
-                  decoration: TextDecoration.none
-              ),),
+              Row(
+                children:[
+                  Spacer(),
+                  GestureDetector(
+                    onTap: () {
+                      if(insect>0){
+                        setState(() {
+                          insect=insect-1;
+                        });
+                      }
+                    },
+                    child:
+                    Text('-',style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 18,
+                        decoration: TextDecoration.none
+                    ), textAlign: TextAlign.center,),
+                  ),
+                  Padding(padding:EdgeInsets.all(10.0)),
+                  Text('Insect: ',style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 18,
+                      decoration: TextDecoration.none
+                  ),),
+                  Text(insect.toString()+"/10",style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 18,
+                      decoration: TextDecoration.none
+                  ),),
+                  Padding(padding:EdgeInsets.all(10.0)),
+                  GestureDetector(
+                    onTap: () {
+                      if(insect<10){
+                        setState(() {
+                          insect=insect+1;
+                        });
+                      }
+                    },
+                    child:
+                    Text('+',style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 18,
+                        decoration: TextDecoration.none
+                    ), textAlign: TextAlign.center,),
+                  ),
+                  Spacer(),
+                ]
+              ),
               Padding(padding:EdgeInsets.all(5.0)),
               Text('Medal: 0/10',style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -85,14 +143,16 @@ class _ChapitreBarry extends State<ChapitreBarry> {
                                               fontSize: 18,
                                               decoration: TextDecoration.none
                                           ),),
-                                          Padding(padding:EdgeInsets.all(10.0)),
-                                          Text('Obtenue',style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.white,
-                                              fontSize: 18,
-                                              decoration: TextDecoration.none
-                                          ),),
-                                          Padding(padding:EdgeInsets.all(10.0)),
+                                          Checkbox(
+                                          checkColor: Colors.white,
+                                          fillColor: MaterialStateProperty.resolveWith(getColor),
+                                          value: isChecked,
+                                          onChanged: (bool? value) {
+                                            setState(() {
+                                              isChecked = value!;
+                                            });
+                                          },
+                                          ),
                                         ]
                                     )
 
@@ -115,17 +175,59 @@ class _ChapitreBarry extends State<ChapitreBarry> {
                 ),
               ),
               Padding(padding:EdgeInsets.all(5.0)),
-              Text('Medal de la tour: 0/10',style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  fontSize: 18,
-                  decoration: TextDecoration.none
-              ),),
-              Padding(padding:EdgeInsets.all(5.0)),
-              new InkWell(
-                  child: new Text('Walkthrough'),
-                  onTap: () => launch('https://www.youtube.com/watch?v=ofLRxhCzg84')
+              Row(
+                  children:[
+                    Spacer(),
+                    GestureDetector(
+                      onTap: () {
+                        if(tour>0){
+                          setState(() {
+                            tour=tour-1;
+                          });
+                        }
+                      },
+                      child:
+                      Text('-',style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 18,
+                          decoration: TextDecoration.none
+                      ), textAlign: TextAlign.center,),
+                    ),
+                    Padding(padding:EdgeInsets.all(10.0)),
+                    Text('Insect: ',style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 18,
+                        decoration: TextDecoration.none
+                    ),),
+                    Text(tour.toString()+"/10",style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 18,
+                        decoration: TextDecoration.none
+                    ),),
+                    Padding(padding:EdgeInsets.all(10.0)),
+                    GestureDetector(
+                      onTap: () {
+                        if(tour<10){
+                          setState(() {
+                            tour=tour+1;
+                          });
+                        }
+                      },
+                      child:
+                      Text('+',style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 18,
+                          decoration: TextDecoration.none
+                      ), textAlign: TextAlign.center,),
+                    ),
+                    Spacer()
+                  ]
               ),
+              Padding(padding:EdgeInsets.all(5.0)),
               Text('walkthrough',style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,

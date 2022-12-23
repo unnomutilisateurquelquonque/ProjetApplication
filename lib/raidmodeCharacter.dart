@@ -8,6 +8,8 @@ class ListeCharacter extends StatefulWidget {
 }
 
 class _ListeCharacter  extends State<ListeCharacter> {
+  var niveau = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+  var personage = ["Joe","Bacon","Citron","You","Patric","Velma","Shaggy","Pedro","Chad","Hood","George","Leon","Ada","Claire","Barry"];
   @override
   Widget build(BuildContext context) {
     return Scrollbar(
@@ -27,7 +29,7 @@ class _ListeCharacter  extends State<ListeCharacter> {
                         child:Row(
                             children:[
                               Padding(padding:EdgeInsets.all(10.0)),
-                              Text('Example',style: TextStyle(
+                              Text(personage[index],style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                   fontSize: 18,
@@ -35,12 +37,53 @@ class _ListeCharacter  extends State<ListeCharacter> {
                               ),),
                               //
                               Spacer(),
-                              Text('Level: 10',style: TextStyle(
+                              Padding(padding:EdgeInsets.all(10.0)),
+                              GestureDetector(
+                                onTap: () {
+                                  if(niveau[index]>1){
+                                    setState(() {
+                                      niveau[index]=niveau[index]-1;
+                                    });
+                                  }
+                                },
+                                child:
+                                Text('-',style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    decoration: TextDecoration.none
+                                ), textAlign: TextAlign.center,),
+                              ),
+                              Padding(padding:EdgeInsets.all(10.0)),
+                              Text('Level: ',style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                   fontSize: 18,
                                   decoration: TextDecoration.none
                               ),),
+                              Text(niveau[index].toString(),style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  decoration: TextDecoration.none
+                              ),),
+                              Padding(padding:EdgeInsets.all(10.0)),
+                              GestureDetector(
+                                onTap: () {
+                                  if(niveau[index]<100){
+                                    setState(() {
+                                      niveau[index]=niveau[index]+1;
+                                    });
+                                  }
+                                },
+                                child:
+                                Text('+',style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    decoration: TextDecoration.none
+                                ), textAlign: TextAlign.center,),
+                              ),
                               Padding(padding:EdgeInsets.all(10.0)),
                             ]
                         )
